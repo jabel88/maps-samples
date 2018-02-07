@@ -31,18 +31,20 @@
         zoom: 8
       });
 
-      L.control.mousePosition({prefix:'cord'}).addTo(map);
+      L.control.mousePosition().addTo(map);
 
       osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         minZoom: 1,
-        attribution: '©OpenStreetMap'
+        attribution: '© OpenStreetMap'
       }).addTo(map);
+
 
       var Esri_WorldImagery =
         L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
           attribution: 'Tiles © Esri'
         });
+
 
       var Hydda_RoadsAndLabels = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
         maxZoom: 18,
@@ -52,12 +54,13 @@
       var hibrida = L.layerGroup([Esri_WorldImagery, Hydda_RoadsAndLabels]);
 
       var mapaBase = {
-        'mapa': osm,
-        'foto': hibrida
+        'Mapa': osm,
+        'Foto': hibrida
       };
 
-      
-      controlCapas = L.control.layers(mapaBase, null, { collapsed: false });
+      controlCapas = L.control.layers(mapaBase, null, {
+        collapsed: false
+      });
       controlCapas.addTo(map)
     }
   </script>

@@ -1,2 +1,1 @@
-# maps-samples
-leafflet maps
+# m2-upc2018
